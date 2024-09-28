@@ -25,12 +25,28 @@
 <body>
     <h1>View the 3D Model!</h1>
     <model-viewer 
+        id="modelViewer" 
         src="sticky.glb"  
+        ios-src="sticky.usdz"  
         ar 
-        camera-controls
+        camera-controls 
         auto-rotate 
         style="width: 100%; height: 80vh;">
-        <p>hi</p>
+        <p>Sorry, your browser does not support 3D models.</p>
     </model-viewer>
+
+    <script>
+        // Automatically trigger the AR button for iOS and Android
+        window.onload = function() {
+            const modelViewer = document.getElementById('modelViewer');
+            
+            // Check if AR is supported
+            if (modelViewer.canActivateAR) {
+                setTimeout(() => {
+                    modelViewer.activateAR();
+                }, 500); // Delay AR launch for 0.5 seconds
+            }
+        };
+    </script>
 </body>
 </html>
