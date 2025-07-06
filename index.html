@@ -59,7 +59,7 @@
 
   <!-- AR Prompt Overlay -->
   <div id="arPrompt" class="ar-prompt">
-    <p>Tap the button to view the 3D model in AR for Lamb Ribs – only £39!</p>
+    <p>Tap the button to view the 3D model in AR for Lamb Ribs – only £38!</p>
     <p>Move your phone slowly to detect the surface faster.</p>
     <button onclick="startAR()">Launch AR</button>
   </div>
@@ -83,10 +83,19 @@
 
   <script>
     const modelViewer = document.getElementById('modelViewer');
+function getModelNameFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const modelName = params.get('model');
+    return modelName ? modelName : 'cheeseplate.glb'; // Default fallback
+  }
+
+  // Set model based on URL
+  modelViewer.src = getModelNameFromURL();
+
 
     function startAR() {
       if (modelViewer.canActivateAR) {
-        modelViewer.setAttribute('scale', '0.5 0.5 0.5');
+        modelViewer.setAttribute('scale', '0.2 0.2 0.2');
         modelViewer.activateAR();
       }
       document.getElementById('arPrompt').style.display = 'none';
