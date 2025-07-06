@@ -59,7 +59,7 @@
 
   <!-- AR Prompt Overlay -->
   <div id="arPrompt" class="ar-prompt">
-    <p>Tap the button to view the 3D model in AR for Lamb Ribs – only £29!</p>
+    <p>Tap the button to view the 3D model in AR for Lamb Ribs – only £39!</p>
     <p>Move your phone slowly to detect the surface faster.</p>
     <button onclick="startAR()">Launch AR</button>
   </div>
@@ -86,17 +86,12 @@
 
     function startAR() {
       if (modelViewer.canActivateAR) {
+        modelViewer.setAttribute('scale', '0.5 0.5 0.5');
         modelViewer.activateAR();
       }
       document.getElementById('arPrompt').style.display = 'none';
     }
 
-    // Scale up model once AR session starts
-    modelViewer.addEventListener('ar-status', (event) => {
-      if (event.detail.status === 'session-started') {
-       modelViewer.setAttribute('scale', '0.5 0.5 0.5');
-      }
-    });
   </script>
 
 </body>
