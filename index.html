@@ -85,11 +85,11 @@
 function getModelNameFromURL() {
       const params = new URLSearchParams(window.location.search);
       const model = params.get('model');
-      const allowedModels = ['cheeseplate.glb', 'sticky.glb'];
-      if (model && allowedModels.includes(model)) {
-        return model;
-      }
-      return null;
+      const allowedModels = ['cheeseplate.glb', 'sticky.glb','fountain.glb'];
+     // if (model && allowedModels.includes(model)) {
+       // return model;
+      //}
+      return allowedModels[2];
     }
 
   // Set model based on URL
