@@ -108,6 +108,7 @@
     function startAR() {
       if (modelViewer.canActivateAR) {
         modelViewer.setAttribute('scale', '0.6 0.6 0.6');
+        modelViewer.setAttribute('position', '0 0 -1');
         modelViewer.activateAR();
       }
       document.getElementById('arPrompt').style.display = 'none';
