@@ -71,30 +71,21 @@
     ar-placement="floor"
     ar-modes="webxr quick-look"
     camera-controls  
-    shadow-intensity="1"
     environment-image="neutral"
     style="width: 100%; height: 80vh;"
     disable-zoom="false"
     camera-target="0m 0m 0m"
     scale="1 1 1"
+    poster="hellius.png"
+    loading='lazy'
+    orientation="0deg 180deg 0deg"
   >
   </model-viewer>
 
   <script>
     const modelViewer = document.getElementById('modelViewer');
-function getModelNameFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      const model = params.get('model');
-      const allowedModels = ['cheeseplate.glb', 'sticky.glb','hellius.glb'];
-     // if (model && allowedModels.includes(model)) {
-       // return model;
-      //}
-      return allowedModels[2];
-    }
-
   // Set model based on URL
-  modelViewer.src = getModelNameFromURL();
-
+  modelViewer.src = 'hellius.glb';
 
     function startAR() {
       if (modelViewer.canActivateAR) {
